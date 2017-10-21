@@ -1,7 +1,7 @@
 
-<div class="cHeader">
+<div class="cHeader" [ngStyle]="{ 'background-image': 'url(' + c.coverImage + ')'}">
     <h1>{{ c.name }}</h1>
-    <img src="{{c.image}}">
+    <img class="cPic" src="{{c.image}}">
 </div>
 
 

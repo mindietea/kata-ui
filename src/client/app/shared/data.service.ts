@@ -13,7 +13,7 @@ export class Curator {
 }
 
 export class Kard {
-	curator: number;	
+	curator: number;
 	id: number;
 	title: string;
 	description: string;
@@ -41,7 +41,7 @@ export class DataService {
 	activeCurator: Curator;
 
 	curators: Curator[];
-	
+
   constructor(private http: Http) {
 
 	let extraP: Product = {
@@ -81,7 +81,7 @@ export class DataService {
 			name: "leah_lv",
 			id: 0,
 			image: "https://instagram.fftw1-1.fna.fbcdn.net/t51.2885-19/s320x320/19623192_394639797597333_2631693613796425728_a.jpg",
-			coverImage: "https://imgur.com/a/9wcGu",
+			coverImage: "https://i.imgur.com/Ir9Ps4Y.jpg",
 			description: "City looks.",
 			kards: [
 				kard0
@@ -100,4 +100,3 @@ export class DataService {
 
 
 }
-
