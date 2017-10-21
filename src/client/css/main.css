@@ -1,3 +1,4 @@
+
 /* Reset */
 html, body, div {
   border: 0;
@@ -22,8 +23,8 @@ body {
 
 /* Set up a default font and some padding to provide breathing room */
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-size: 16px;
+  font-family: "Muli", sans-serif;
+  font-size: 12px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -77,4 +78,42 @@ button:hover {
   width: 100%;
   height: 200px;
   background-size: cover;
+
+  &:before {
+    content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+	opacity: .6;
+  }
+}
+
+.cHeader h1 {
+  color: black;
+}
+
+.cSidebar {
+  background-color: #FFFAE3;
+}
+
+.cImage {
+  border-radius: 50%;
+  height: 150px;
+}
+
+.kard {
+  background-color: #99E1D9;
+  padding: 30px;
+  width: 700px;
+  max-height: 600px;
+
+  border-radius: 40px;
+}
+
+.productImage {
+  max-width: 400px;
+  max-height: 400px;
 }

@@ -1,23 +1,42 @@
 
+<button type="button" class="btn btn-primary">Primary</button>
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Welcome</h1>
+    <h2>Angular and Bootstrap Demo</h2>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">Status</div>
+    <div class="panel-body">
+      <h3>{{title}}</h3>
+    </div>
+  </div>
+</div>
+
+
 <div class="cHeader" [ngStyle]="{ 'background-image': 'url(' + c.coverImage + ')'}">
     <h1>{{ c.name }}</h1>
-    <img class="cPic" src="{{c.image}}">
+    <img class="cImage" src="{{c.image}}">
 </div>
 
 
 
-<p>{{ c.description }}</p>
+<div class="cSidebar">
+  <p>{{ c.description }}</p>
+</div>
 
 
 
-<div *ngFor="let kard of c.kards">
+<div *ngFor="let kard of c.kards" class="kard">
 
     <h1>{{ kard.title }}</h1>
     <p>{{ kard.description }}</p>
 
     <div *ngFor="let product of kard.products">
         <h2>{{ product.title }}</h2>
-        <a href="{{ product.link }}" target="_blank"><img src="{{ product.image }}"></a>
+        <a href="{{ product.link }}" target="_blank"><img class="productImage" src="{{ product.image }}"></a>
     </div>
 
 </div>
