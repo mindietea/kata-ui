@@ -1,0 +1,12 @@
+<h1>{{ c.name }}</h1>
+
+<img src="{{c.image}}">
+
+<p>{{ c.description }}</p>
+
+<div *ngFor="let kard of c.kards">
+
+    <h1>{{ kard.title }}</h1>
+    <p>{{ kard.description }}</p>
+
+</div>
