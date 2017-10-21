@@ -1,12 +1,23 @@
-<h1>{{ c.name }}</h1>
 
-<img src="{{c.image}}">
+<div class="cHeader">
+    <h1>{{ c.name }}</h1>
+    <img src="{{c.image}}">
+</div>
+
+
 
 <p>{{ c.description }}</p>
+
+
 
 <div *ngFor="let kard of c.kards">
 
     <h1>{{ kard.title }}</h1>
     <p>{{ kard.description }}</p>
+
+    <div *ngFor="let product of kard.products">
+        <h2>{{ product.title }}</h2>
+        <a href="{{ product.link }}" target="_blank"><img src="{{ product.image }}"></a>
+    </div>
 
 </div>
