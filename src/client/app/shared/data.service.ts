@@ -44,7 +44,16 @@ export class DataService {
 
 	following: boolean[];
 
+	kards: Kard[];
+
   constructor(private http: Http) {
+
+  	this.http.get("http://6197757d.ngrok.io/api/curator/0/posts")
+  		.subscribe((res: Response) => {
+  			res.json().then(function(data) {
+  				console.log(data);
+  			})
+  		})
 
 	let extraP: Product = {
 		id: 0,
@@ -70,13 +79,13 @@ export class DataService {
 		status: false
 	}
 
-	let kard0: Kard = {
+	this.kards = [{
 		curator: 0,
 		id: 0,
 		title: "extra petite, extra warm",
 		description: "Jean from Extra Petite is one of my favorite fashion bloggers. As a professional in Boston, she excels at cute yet work-appropriate outfits for the small of us out there.",
 		products: [ extraP, beltCoat, skirt ]
-	}
+	}];
 
 	this.curators = [
 		{
@@ -86,7 +95,7 @@ export class DataService {
 			coverImage: "https://i.imgur.com/Ir9Ps4Y.jpg",
 			description: "A city girl.",
 			kards: [
-				kard0
+				this.kards[0]
 			]
 		}
 	]
