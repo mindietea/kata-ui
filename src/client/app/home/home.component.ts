@@ -53,16 +53,36 @@ export class HomeComponent implements OnInit {
    * Get the names OnInit
    */
   ngOnInit() {
-    this.dataService.getKards()
-      .subscribe(
-        r => {
-          this.kards = r;
-          console.log(this.kards);
-        },
-        err => {
-          console.log(err)
-        }
-      );
+
+    this.kards = [];
+
+    if(this.dataService.following[0]) {
+      this.dataService.getKards(0)
+        .subscribe(
+          r => {
+            this.kards = this.kards.concat(r);
+            console.log("Home get: " + this.kards);
+          },
+          err => {
+            console.log(err)
+          }
+        );
+    }
+
+    if(this.dataService.following[1]) {
+      this.dataService.getKards(1)
+        .subscribe(
+          r => {
+            this.kards = r.concat(this.kards);
+            console.log("Home get: " + this.kards);
+          },
+          err => {
+            console.log(err)
+          }
+        );
+    }
+
+
   }
 
   curate(num:number) {

@@ -110,6 +110,21 @@ export class DataService {
 
 	this.following = [true, false];
 
+	// Get curator cards from service
+	this.getKards(0)
+		.subscribe(
+			r => {
+				this.curators[0].kards = r;
+			}
+		);
+
+	this.getKards(1)
+		.subscribe(
+			r => {
+				this.curators[1].kards = r;
+			}
+		);
+
   }
 
   /**
@@ -117,8 +132,8 @@ export class DataService {
    * @return {string[]} The Observable for the HTTP request.
    */
 
-   getKards() {
-   	return this.http.get("http://76b40d76.ngrok.io/api/curator/" + this.activeCurator.id + "/posts")
+   getKards(id) {
+   	return this.http.get("http://76b40d76.ngrok.io/api/curator/" + id + "/posts")
   		.map((res:Response) => res.json());
    }
 
