@@ -12,25 +12,14 @@
             <!-- Center -->
             <div class="col-md-6 kard">
     
-              <h1>{{ kard.title }}</h1>
-              <p>{{ kard.image }}</p>
-              <p>{{ kard.url }}</p>
-              <p>{{ kard.brand }}</p>
-              <p>{{ kard.price }}</p>
-    
+              <h1>{{ kard.ProductName }}</h1>
+            
                   <!-- Img -->
-                  <a href="{{ kard.url }}" target="_blank">
-                    <img class="productImage center-block"  src="{{ kard.url }}">
+                  <a href="{{ kard.ProductLink }}" target="_blank">
+                    <img class="productImage center-block"  src="{{ kard.ImageLink }}">
                   </a>
-    
-                  <!-- Deets -->
-                  <p>
-                    <a href="{{ kard.url }}" target="_blank"><span {{ kard.title }}></span></a>
-                  </p>
-                  <p>
-                    <a href="{{ kard.url }}" target="_blank"><span {{ kard.brand }}></span></a>
-                  </p>
-        
+            
+
                 </div>
     
             </div>

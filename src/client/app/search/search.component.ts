@@ -10,14 +10,15 @@ import { DataService, Kard } from '../shared/data.service';
 export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
-  d: DataService;
+  userIn :String;
   kards: any[];
   constructor(public dataService: DataService) {
     this.kards = []
+    this.userIn = ""
   }
 
-   doSearch(name:String){
-    this.dataService.getSearchResults(name)
+   doSearch(){
+    this.dataService.getSearchResults(this.userIn)
       .subscribe(
         r => {
           this.kards = r;
