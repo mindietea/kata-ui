@@ -16,7 +16,7 @@ export class Curator {
 
 export class Kard {
 	curator: number;
-	id: number;
+	id?: number;
 	title: string;
 	description: string;
 	products: Product[];
@@ -50,15 +50,7 @@ export class DataService {
 
   constructor(private http: Http) {
 
-  	this.getKards()
-  		.subscribe(
-  			r => {
-  				console.log(r)
-  			},
-  			err => {
-  				console.log(err)
-  			}
-  		);
+  	
 
 	let extraP: Product = {
 		id: 0,
@@ -94,13 +86,22 @@ export class DataService {
 
 	this.curators = [
 		{
-			name: "leah_lv",
+			name: "leah",
 			id: 0,
 			image: "https://instagram.fftw1-1.fna.fbcdn.net/t51.2885-19/s320x320/19623192_394639797597333_2631693613796425728_a.jpg",
 			coverImage: "https://i.imgur.com/Ir9Ps4Y.jpg",
 			description: "A city girl.",
 			kards: [
 				this.kards[0]
+			]
+		},
+		{
+			name: "Tech Buddy TV",
+			id: 1,
+			image: "https://i.imgur.com/wPFLMIq.png",
+			coverImage: "http://eskipaper.com/images/tv-wallpaper-6.jpg",
+			description: "We're Tech Buddy TV! We review everything from PC parts to keyboards to headphones to weird snacks! Check out our YouTube channel.",
+			kards: [
 			]
 		}
 	]
@@ -117,7 +118,7 @@ export class DataService {
    */
 
    getKards() {
-   	return this.http.get("http://6197757d.ngrok.io/api/curator/0/posts")
+   	return this.http.get("http://76b40d76.ngrok.io/api/curator/0/posts")
   		.map((res:Response) => res.json());
    }
 

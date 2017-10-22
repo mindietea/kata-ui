@@ -1,15 +1,58 @@
-<div class="container row">
 
-	<!-- Left -->
-	<div class="col-md-3">
-	</div>
+<div class="hHeader">
+	<div class="topTag">new :</div>
+	<img (click)="curate(0)" class="firstImage" src="{{ dataService.curators[0].image }}">
+	<img (click)="curate(1)" class="secondImage" src="{{ dataService.curators[1].image }}">
+</div>
 
-	<!-- Center -->
-	<div class="col-md-6">
-	</div>
 
-	<!-- Right -->
-	<div class="col-md-3">
+<!-- Each card -->
+<div *ngFor="let kard of kards">
+
+	<div class="container row">
+
+		<!-- Left -->
+		<div class="col-md-3">
+			<img (click)="curate(kard.curator)" class="sideImage" src="{{ dataService.curators[kard.curator].image }}">
+		</div>
+
+		<!-- Center -->
+		<div class="col-md-6 kard">
+
+	      <h1>{{ kard.title }}</h1>
+	      <p>{{ kard.description }}</p>
+
+	        <!-- Products -->
+	        <div *ngFor="let product of kard.products" class="productBox">
+
+	          <!-- Img -->
+	          <a href="{{ product.link }}" target="_blank">
+	            <img class="productImage center-block"  [ngClass]="{ grayed: product.status==false}" src="{{ product.image }}">
+	          </a>
+
+	          <!-- Deets -->
+	          <p>
+	            <a href="{{ product.link }}" target="_blank"><span [ngClass]="{ grayed: product.status==false}">{{ product.title }}</span></a>
+	          </p>
+
+	          <p *ngIf=" product.status == false">
+	            <span [ngClass]="{ grayed: product.status==false}">
+	              <span class="glyphicon glyphicon-remove"></span>
+	              This product is either out of stock, not in your size, or does not ship to your country.
+	            </span>
+	          </p>
+
+	          <!-- + icon  -->
+	          <p [ngClass]="{ grayed: product.status==false}" style="text-align: right;"><span class="glyphicon glyphicon-plus"></span></p>
+
+	        </div>
+
+	    </div>
+
+		<!-- Right -->
+		<div class="col-md-3">
+		</div>
+
 	</div>
 
 </div>

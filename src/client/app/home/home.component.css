@@ -5,10 +5,94 @@
 }
 
 
+.hHeader {
+    position: relative;
+    top: 0px;
+    width: 100%;
+    height: 100px;
+    margin: 0px;
+    padding: 0px;
+    border-bottom: 1px solid #eaecef;
+}
+
+.topTag {
+    position: relative;
+    left: 20px;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.firstImage {
+    display: inline-block;
+  z-index: 2;
+  position: absolute;
+  left: 130px;
+  transform: translateX(-50%);
+  top: 10px;
+
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+}
+
+.secondImage {
+    display: inline-block;
+  z-index: 2;
+  position: absolute;
+  left: 190px;
+  transform: translateX(-50%);
+  top: 10px;
+
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+}
+
+.sideImage {
+  z-index: 2;
+  position: absolute;
+  right: 10px;
+  transform: translateX(-50%);
+  top: 20px;
+
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+}
+
+/**/
+
+
 .kard {
   border: 1px solid #c4c8d1;
   padding: 30px;
   margin: 10px;
   border-radius: 5px;
   background-color: white;
+}
+
+.productBox {
+  border: 1px solid #c4c8d1;
+  margin: 10px;
+  padding: 30px;
+}
+
+.productImage {
+  max-height: 300px;
+  max-width: 300px;
+}
+
+.productImage.grayed {
+  opacity: 0.2;
+}
+
+.grayed {
+  color: #c4c8d1;
+}
+
+.productBox p {
+  text-align: center;
+  font-size: 16px;
 }

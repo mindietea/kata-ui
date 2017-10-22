@@ -33,8 +33,8 @@
     <p class="textCenter"><b>{{ c.name }}</b></p>
 
     <!-- Follow button -->
-    <button *ngIf="dataService.following[c.id]==false" class="kataBtn center-block" (click)=follow(true)>follow</button>
-    <button *ngIf="dataService.following[c.id]==true" class="kataUnfollow center-block" (click)=follow(false)>unfollow</button>
+    <button *ngIf="dataService.following[c.id]==false" class="kataBtn center-block" (click)="follow(true)">follow</button>
+    <button *ngIf="dataService.following[c.id]==true" class="kataUnfollow center-block" (click)="follow(false)">unfollow</button>
 
     <!-- Each card -->
     <div *ngFor="let kard of c.kards" class="kard">
