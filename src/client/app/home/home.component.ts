@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
   kards: Kard[];
   newKard: Kard;
 
+  showForm: boolean;
+
   /**
    * Creates an instance of the HomeComponent with the injected
    * NameListService.
@@ -26,6 +28,7 @@ export class HomeComponent implements OnInit {
    */
   constructor(public dataService: DataService,
               private router: Router, private titlecasePipe: TitleCasePipe) {
+    this.showForm = false;
     this.kards = [];
     this.newKard = {
         curator: 0,
@@ -50,16 +53,36 @@ export class HomeComponent implements OnInit {
    * Get the names OnInit
    */
   ngOnInit() {
-    this.dataService.getKards()
-      .subscribe(
-        r => {
-          this.kards = r;
-          console.log(this.kards);
-        },
-        err => {
-          console.log(err)
-        }
-      );
+
+    this.kards = [];
+
+    if(this.dataService.following[0]) {
+      this.dataService.getKards(0)
+        .subscribe(
+          r => {
+            this.kards = this.kards.concat(r);
+            console.log("Home get: " + this.kards);
+          },
+          err => {
+            console.log(err)
+          }
+        );
+    }
+
+    if(this.dataService.following[1]) {
+      this.dataService.getKards(1)
+        .subscribe(
+          r => {
+            this.kards = r.concat(this.kards);
+            console.log("Home get: " + this.kards);
+          },
+          err => {
+            console.log(err)
+          }
+        );
+    }
+
+
   }
 
   curate(num:number) {
@@ -68,7 +91,17 @@ export class HomeComponent implements OnInit {
   }
 
   submitKard() {
-    console.log(this.newKard)
+    this.dataService.postKard(this.newKard)
+      .subscribe(
+        r => {
+          console.log(r);
+          this.router.navigateByUrl("/");
+        }
+      );
+  }
+
+  showF() {
+    this.showForm = true;
   }
 
 }
