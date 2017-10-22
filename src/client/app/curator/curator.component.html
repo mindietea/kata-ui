@@ -1,47 +1,67 @@
 
 
-<div class="cHeader center-block" [ngStyle]="{ 'background-image': 'url(' + c.coverImage + ')'}">
-    <h1 style="text-align: center;">{{ c.name }}</h1>
+<div class="cHeader" [ngStyle]="{ 'background-image': 'url(' + c.coverImage + ')'}">
 
     <img class="cImage center-block" src="{{c.image}}">
 
-    <div class="whiteBlock"></div>
+    <div class="halfBlock container">
+      <div class="row">
+          <div class="col-md-6 pDescription">
+            <p> {{ c.description }}</p>
+          </div>
+          <div class="col-md-6 pRight">
+            <p>
+              <a href="https://www.instagram.com/luanna/"><img class="socialIcon" src="https://s3.amazonaws.com/freebiesupply/large/2x/instagram-icon-white-on-black.png"></a>
+              <a href="https://www.pinterest.com/bethennyfrankel/" target="_blank"><img class="socialIcon" src="http://downloadicons.net/sites/default/files/pinterest-logo-icon-63868.png"></a>
+            </p>
+          </div>
+      </div>
+    </div>
 </div>
 
-<div class="container">
+<div class="container profileBody">
   <div class="row">
 
 <!-- Left -->
-  <div class="cSidebar col-md-2">
-    <p>{{ c.description }}</p>
+  <div class="cSidebar col-md-3">
   </div>
 
 
   <!-- Center -->
-  <div class="col-md-8">
+  <div class="col-md-6">
+
+    <p class="textCenter"><b>{{ c.name }}</b></p>
+
+    <!-- Follow button -->
+    <button *ngIf="dataService.following[c.id]==false" class="kataBtn center-block" (click)=follow(true)>follow</button>
+    <button *ngIf="dataService.following[c.id]==true" class="kataUnfollow center-block" (click)=follow(false)>unfollow</button>
 
     <!-- Each card -->
     <div *ngFor="let kard of c.kards" class="kard">
 
-      <h1 >{{ kard.title }}</h1>
-
+      <h1>{{ kard.title }}</h1>
       <p>{{ kard.description }}</p>
 
         <!-- Products -->
         <div *ngFor="let product of kard.products" class="productBox">
-          <div class="row">
-              <!-- Img -->
-            <div class="col-md-6">
-              <a href="{{ product.link }}">
-                <img class="productImage center-block"  [ngClass]="{ grayed: product.status==false}" src="{{ product.image }}">
-              </a>
-            </div>
-            <!-- Deets -->
-            <div class="col-md-6">
-              <h2>{{ product.title }}</h2>
-            </div>
 
-          </div>
+          <!-- Img -->
+          <a href="{{ product.link }}" target="_blank">
+            <img class="productImage center-block"  [ngClass]="{ grayed: product.status==false}" src="{{ product.image }}">
+          </a>
+
+          <!-- Deets -->
+          <p>
+            <a href="{{ product.link }}" target="_blank"><span [ngClass]="{ grayed: product.status==false}">{{ product.title }}</span></a>
+          </p>
+
+          <p *ngIf=" product.status == false">
+            <span [ngClass]="{ grayed: product.status==false}">
+              <span class="glyphicon glyphicon-remove"></span>
+              This product is either out of stock, not in your size, or does not ship to your country.
+            </span>
+          </p>
+
         </div>
 
     </div>
@@ -49,8 +69,7 @@
   </div>
 
   <!-- Right -->
-  <div class="col-md-2">
-    right
+  <div class="col-md-3">
   </div>
 
   </div>

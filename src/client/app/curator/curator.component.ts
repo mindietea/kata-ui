@@ -12,9 +12,14 @@ export class CuratorComponent implements OnInit {
   c: Curator;
 
   constructor(public dataService: DataService) {
-  }  
+  }
 
   ngOnInit() {
-    this.c = this.dataService.activeCurator;    
+    this.c = this.dataService.activeCurator;
   }
+
+  follow(val:boolean) {
+    this.dataService.following[this.c.id] = val;
+  }
+
 }

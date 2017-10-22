@@ -42,13 +42,15 @@ export class DataService {
 
 	curators: Curator[];
 
+	following: boolean[];
+
   constructor(private http: Http) {
 
 	let extraP: Product = {
 		id: 0,
 		image: "http://10dlq823u3q32ztyku1fnglg.wpengine.netdna-cdn.com/wp-content/uploads/2016/11/30884867426_4567423b7a_b.jpg",
 		link: "http://www.extrapetite.com/2016/11/holiday-work-style-wrap-jacket-jewelled.html",
-		title: "Jean from Extra Petite",
+		title: "check out her blog",
 		status: true
 	}
 
@@ -71,7 +73,7 @@ export class DataService {
 	let kard0: Kard = {
 		curator: 0,
 		id: 0,
-		title: "Extra Petite, Extra Cute",
+		title: "extra petite, extra warm",
 		description: "Jean from Extra Petite is one of my favorite fashion bloggers. As a professional in Boston, she excels at cute yet work-appropriate outfits for the small of us out there.",
 		products: [ extraP, beltCoat, skirt ]
 	}
@@ -82,7 +84,7 @@ export class DataService {
 			id: 0,
 			image: "https://instagram.fftw1-1.fna.fbcdn.net/t51.2885-19/s320x320/19623192_394639797597333_2631693613796425728_a.jpg",
 			coverImage: "https://i.imgur.com/Ir9Ps4Y.jpg",
-			description: "City looks.",
+			description: "A city girl.",
 			kards: [
 				kard0
 			]
@@ -90,12 +92,16 @@ export class DataService {
 	]
 
 	this.activeCurator = this.curators[0];
+
+	this.following = [true, false];
+
   }
 
   /**
    * Returns an Observable for the HTTP GET request for the JSON resource.
    * @return {string[]} The Observable for the HTTP request.
    */
+
 
 
 

@@ -5,23 +5,56 @@
 }
 
 .cHeader {
+  position: relative;
   top: 0px;
   width: 100%;
-  height: 240px;
+  height: 200px;
   background-size: cover;
   margin: 0px;
   padding: 0px;
 }
 
-.cHeader h1 {
-  color: black;
-  font-family: "Muli", sans-serif;
+.halfBlock {
+  position: absolute;
+  bottom: 0px;
+
+  background-color: #FFFFFF;
+  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+  height: 100px;
+  width: 100%;
+  text-align: center;
+}
+
+.pDescription {
+  text-align: right;
+  padding-right: 100px;
+  font-size: 14px;
+}
+
+.pRight {
+  text-align: left;
+  padding-left: 100px;
+}
+
+.socialIcon {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.profileBody {
+  width: 100%;
 }
 
 .cSidebar {
 }
 
 .cImage {
+  z-index: 2;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
+
   border-radius: 50%;
   height: 150px;
   width: 150px;
@@ -32,7 +65,10 @@
   padding: 30px;
   margin: 10px;
   border-radius: 5px;
+  background-color: white;
 }
+
+/*----------------------------*/
 
 .productBox {
   border: 1px solid #c4c8d1;
@@ -41,15 +77,38 @@
 }
 
 .productImage {
-  display: inline;
   max-height: 300px;
   max-width: 300px;
 }
 
 .productImage.grayed {
-  opacity: 0.5;
+  opacity: 0.2;
 }
 
-/*.h1.grayed {
+.grayed {
   color: #c4c8d1;
-}*/
+}
+
+.productBox p {
+  text-align: center;
+  font-size: 16px;
+}
+
+.kataBtn {
+  background-color: black;
+  color: white;
+}
+
+.kataUnfollow {
+  background-color: #c4c8d1;
+  color: white;
+}
+
+.pInfo {
+  text-align: center;
+  color: #c4c8d1;
+}
+
+.textCenter {
+  text-align: center;
+}
