@@ -10,4 +10,4 @@ import { DataService } from '../shared/data.service';
   exports: [VisionComponent],
   providers: [DataService]  
 })
-export class CuratorModule { }
+export class VisionModule { }
