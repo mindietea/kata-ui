@@ -1,18 +1,23 @@
-<h1>Vision page</h1>
+<div class="container row">
+    <h1>Vision page</h1>
 
-<input [(ngModel)]="userIn">
+    <input [(ngModel)]="userIn">
 
-<button (click)="doVision()">Find Similar</button>
+    <button (click)="doVision()">Find Similar</button>
+</div>
 
 <!-- Each card -->
 <div *ngFor="let kard of kards">
-    
-        <div class="container row">
+
+    <div class="col-md-3">
+    </div>
+
+        <div class="container row" style="width:100%;">
     
             <!-- Center -->
             <div class="col-md-6 kard">
     
-              <h1>{{ kard.title }}</h1>
+              <h2>{{ kard.title }}</h2>
     
                   <!-- Img -->
                   <a href="{{ kard.url }}" target="_blank">
@@ -21,7 +26,7 @@
     
                   <!-- Deets -->
                   <p>
-                    <a href="{{ kard.url }}" target="_blank"><p>{{ kard.price }}</p></a>
+                    <a href="{{ kard.url }}" target="_blank"><h4>Price: ${{ kard.price }}</h4></a>
                   </p>
         
                 </div>
