@@ -5,6 +5,28 @@
 	<img (click)="curate(1)" class="secondImage" src="{{ dataService.curators[1].image }}">
 </div>
 
+<!-- Post form -->
+<div class="postForm">
+	<div>
+		<b>Title:</b><br><input placeholder="Title" [(ngModel)]="newKard.title">
+	</div>
+	
+	<div>
+		<b>Description:</b><br><input placeholder="Description" [(ngModel)]="newKard.description">
+	</div>
+
+	<div>
+		<b>Image:</b><br>
+		<input placeholder="Image Title" [(ngModel)]="newKard.products[0].title">
+		<input placeholder="Image Source" [(ngModel)]="newKard.products[0].image">
+		<input placeholder="Store Link" [(ngModel)]="newKard.products[0].link">
+	</div>
+
+	<button (click)="submitKard()">Submit</button>
+
+
+</div>
+
 
 <!-- Each card -->
 <div *ngFor="let kard of kards">

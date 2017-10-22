@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   kards: Kard[];
+  newKard: Kard;
 
   /**
    * Creates an instance of the HomeComponent with the injected
@@ -26,6 +27,19 @@ export class HomeComponent implements OnInit {
   constructor(public dataService: DataService,
               private router: Router, private titlecasePipe: TitleCasePipe) {
     this.kards = [];
+    this.newKard = {
+        curator: 0,
+        title: "",
+        description: "",
+        products: [
+          {
+            title: "",
+            image: "",
+            link: "",
+            status: true
+          }
+        ]
+      }
     }
 
   transformName() {
@@ -51,6 +65,10 @@ export class HomeComponent implements OnInit {
   curate(num:number) {
     this.dataService.activeCurator = this.dataService.curators[num];
     this.router.navigateByUrl("/curator");
+  }
+
+  submitKard() {
+    console.log(this.newKard)
   }
 
 }

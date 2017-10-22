@@ -118,7 +118,7 @@ export class DataService {
    */
 
    getKards() {
-   	return this.http.get("http://76b40d76.ngrok.io/api/curator/0/posts")
+   	return this.http.get("http://76b40d76.ngrok.io/api/curator/" + this.activeCurator.id + "/posts")
   		.map((res:Response) => res.json());
    }
 
