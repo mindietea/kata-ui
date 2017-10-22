@@ -1,12 +1,28 @@
 :host {
   display: block;
-  padding: 0 16px;
+  padding: 0px;
+  margin: 0px;
 }
 
-h2 {
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: 0.005em;
-  margin-bottom: 0;
-  margin-top: 0.83em;
+.cHeader {
+  top: 0px;
+  width: 100%;
+  height: 240px;
+  background-size: cover;
+  margin: 0px;
+  padding: 0px;
+}
+
+.cHeader h1 {
+  color: black;
+  font-family: "Muli", sans-serif;
+}
+
+.cSidebar {
+}
+
+.cImage {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
 }

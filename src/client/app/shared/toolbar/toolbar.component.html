@@ -1,2 +1,9 @@
-<h1>Kata</h1>
-<div class="more"></div>
+<span class="kataLogo">Kata</span>
+
+<a [routerLink]="['/']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">
+  <span class="navItem">Home</span>
+</a>
+
+<a [routerLink]="['/curator']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">
+  <span class="navItem" >+ More</span>
+</a>

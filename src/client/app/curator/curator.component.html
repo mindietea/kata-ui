@@ -1,42 +1,50 @@
 
-<button type="button" class="btn btn-primary">Primary</button>
 
+<div class="cHeader center-block" [ngStyle]="{ 'background-image': 'url(' + c.coverImage + ')'}">
+    <h1 style="text-align: center;">{{ c.name }}</h1>
+
+    <img class="cImage center-block" src="{{c.image}}">
+
+    <div class="whiteBlock"></div>
+</div>
 
 <div class="container">
-  <div class="jumbotron">
-    <h1>Welcome</h1>
-    <h2>Angular and Bootstrap Demo</h2>
+  <div class="row">
+
+<!-- Left -->
+  <div class="cSidebar col-md-3">
+    <p>{{ c.description }}</p>
   </div>
-  <div class="panel panel-primary">
-    <div class="panel-heading">Status</div>
-    <div class="panel-body">
-      <h3>{{title}}</h3>
-    </div>
-  </div>
-</div>
 
 
-<div class="cHeader" [ngStyle]="{ 'background-image': 'url(' + c.coverImage + ')'}">
-    <h1>{{ c.name }}</h1>
-    <img class="cImage" src="{{c.image}}">
-</div>
+  <!-- Center -->
+  <div class="col-md-6" style="background-color: yellow;">
 
+    <!-- Each card -->
 
+    <div *ngFor="let kard of c.kards" class="kard">
 
-<div class="cSidebar">
-  <p>{{ c.description }}</p>
-</div>
+      <h1>{{ kard.title }}</h1>
 
+      <div class="row">
 
+        <div class="col-md-5">
+          center 1
+        </div>
 
-<div *ngFor="let kard of c.kards" class="kard">
+        <div class="col-md-7">
+          center 2
+        </div>
 
-    <h1>{{ kard.title }}</h1>
-    <p>{{ kard.description }}</p>
-
-    <div *ngFor="let product of kard.products">
-        <h2>{{ product.title }}</h2>
-        <a href="{{ product.link }}" target="_blank"><img class="productImage" src="{{ product.image }}"></a>
+      </div>
     </div>
 
+  </div>
+
+  <!-- Right -->
+  <div class="col-md-3">
+    right
+  </div>
+
+  </div>
 </div>
