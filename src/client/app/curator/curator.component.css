@@ -26,3 +26,30 @@
   height: 150px;
   width: 150px;
 }
+
+.kard {
+  border: 1px solid #c4c8d1;
+  padding: 30px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.productBox {
+  border: 1px solid #c4c8d1;
+  margin: 10px;
+  padding: 30px;
+}
+
+.productImage {
+  display: inline;
+  max-height: 300px;
+  max-width: 300px;
+}
+
+.productImage.grayed {
+  opacity: 0.5;
+}
+
+/*.h1.grayed {
+  color: #c4c8d1;
+}*/
