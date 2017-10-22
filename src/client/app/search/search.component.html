@@ -1,8 +1,8 @@
-<h1>Vision page</h1>
+<h1>Search page</h1>
 
 <input [(ngModel)]="userIn">
 
-<button (click)="doVision()">Find Similar</button>
+<button (click)="doSearch()">Find Similar</button>
 
 <!-- Each card -->
 <div *ngFor="let kard of kards">
@@ -13,15 +13,22 @@
             <div class="col-md-6 kard">
     
               <h1>{{ kard.title }}</h1>
+              <p>{{ kard.image }}</p>
+              <p>{{ kard.url }}</p>
+              <p>{{ kard.brand }}</p>
+              <p>{{ kard.price }}</p>
     
                   <!-- Img -->
                   <a href="{{ kard.url }}" target="_blank">
-                    <img class="productImage center-block" src="{{ kard.image }}">
+                    <img class="productImage center-block"  src="{{ kard.url }}">
                   </a>
     
                   <!-- Deets -->
                   <p>
-                    <a href="{{ kard.url }}" target="_blank"><p>{{ kard.price }}</p></a>
+                    <a href="{{ kard.url }}" target="_blank"><span {{ kard.title }}></span></a>
+                  </p>
+                  <p>
+                    <a href="{{ kard.url }}" target="_blank"><span {{ kard.brand }}></span></a>
                   </p>
         
                 </div>
