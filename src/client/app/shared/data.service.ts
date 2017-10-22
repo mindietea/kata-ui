@@ -140,6 +140,12 @@ export class DataService {
     }    
    }
 
+   postKard(k:Kard) {
+   	return this.http.post("http://76b40d76.ngrok.io/api/post/create_json",
+   		JSON.stringify(k))
+   		.map((res:Response) => res.json());
+   }
+
    getVisionResults(image_url: String){
 	return this.http.post("http://76b40d76.ngrok.io/api/post/vision",
 	JSON.stringify({url:image_url}))

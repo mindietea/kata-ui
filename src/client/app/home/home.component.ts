@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
   kards: Kard[];
   newKard: Kard;
 
+  showForm: boolean;
+
   /**
    * Creates an instance of the HomeComponent with the injected
    * NameListService.
@@ -26,6 +28,7 @@ export class HomeComponent implements OnInit {
    */
   constructor(public dataService: DataService,
               private router: Router, private titlecasePipe: TitleCasePipe) {
+    this.showForm = false;
     this.kards = [];
     this.newKard = {
         curator: 0,
@@ -68,7 +71,16 @@ export class HomeComponent implements OnInit {
   }
 
   submitKard() {
-    console.log(this.newKard)
+    this.dataService.postKard(this.newKard)
+      .subscribe(
+        r => {
+          console.log(r);
+        }
+      );
+  }
+
+  showF() {
+    this.showForm = true;
   }
 
 }
