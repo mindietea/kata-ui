@@ -118,8 +118,26 @@ export class DataService {
    */
 
    getKards() {
-   	return this.http.get("http://76b40d76.ngrok.io/api/curator/" + this.activeCurator.id + "/posts")
-  		.map((res:Response) => res.json());
+    if (this.following[0] && this.following[1]) {
+        var result0 = this.http.get("http://76b40d76.ngrok.io/api/curator/0/posts")
+        .map((res:Response) => res.json());
+        var result1 = this.http.get("http://76b40d76.ngrok.io/api/curator/1/posts")
+        .map((res:Response) => res.json());
+        var result = Object.assign(result0, result1);
+        return result;
+    }
+    
+    else if (this.following[0]) {
+        var result0 = this.http.get("http://76b40d76.ngrok.io/api/curator/0/posts")
+        .map((res:Response)) => res.json());
+        return result0;
+    }
+
+    else if (this.following[1]) {
+        var result1 = this.http.get("http://76b40d76.ngrok.io/api/curator/1/posts")
+        .map((res:Response) => res.json());
+        return result1;
+    }    
    }
 
    getVisionResults(image_url: String){
