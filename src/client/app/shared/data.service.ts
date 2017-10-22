@@ -122,5 +122,10 @@ export class DataService {
   		.map((res:Response) => res.json());
    }
 
+   getVisionResults(image_url: String){
+	return this.http.post("http://76b40d76.ngrok.io/api/post/vision",
+	JSON.stringify({"url":image_url}))
+	.map((res:Response) => res.json());
+   }
 
 }
