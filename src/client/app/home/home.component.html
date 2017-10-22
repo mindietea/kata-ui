@@ -5,25 +5,30 @@
 	<img (click)="curate(1)" class="secondImage" src="{{ dataService.curators[1].image }}">
 </div>
 
+
+<button *ngIf="showForm==false" class="kataBtn" (click)="showF()">New Post</button>
+
 <!-- Post form -->
-<div class="postForm">
-	<div>
-		<b>Title:</b><br><input placeholder="Title" [(ngModel)]="newKard.title">
-	</div>
-	
-	<div>
-		<b>Description:</b><br><input placeholder="Description" [(ngModel)]="newKard.description">
-	</div>
+<div *ngIf="showForm==true" class="postForm row">
 
-	<div>
-		<b>Image:</b><br>
-		<input placeholder="Image Title" [(ngModel)]="newKard.products[0].title">
-		<input placeholder="Image Source" [(ngModel)]="newKard.products[0].image">
-		<input placeholder="Store Link" [(ngModel)]="newKard.products[0].link">
-	</div>
+		<div class="center-block col-md-2">
+			<b>Title:</b><br><input placeholder="Title" [(ngModel)]="newKard.title">
+		</div>
+		
+		<div class="center-block col-md-2">
+			<b>Description:</b><br><input placeholder="Description" [(ngModel)]="newKard.description">
+		</div>
 
-	<button (click)="submitKard()">Submit</button>
+		<div class="center-block col-md-6">
+			<b>Image:</b><br>
+			<input placeholder="Image Title" [(ngModel)]="newKard.products[0].title">
+			<input placeholder="Image Source" [(ngModel)]="newKard.products[0].image">
+			<input placeholder="Store Link" [(ngModel)]="newKard.products[0].link">
+		</div>
 
+		<div class="center-block col-md-2">
+			<button class="kataBtn" (click)="submitKard()">Submit</button>
+		</div>
 
 </div>
 
@@ -36,7 +41,7 @@
 		<!-- Left -->
 		<div class="col-md-3">
 			<img (click)="curate(kard.curator)" class="sideImage" src="{{ dataService.curators[kard.curator].image }}">
-            <h3 class="sideName"> {{ dataService.curators[kard.curator].name | titlecase }} </h3>
+            <h3 class="sideName"> {{ dataService.curators[kard.curator].name }} </h3>
 		</div>
 
 		<!-- Center -->
