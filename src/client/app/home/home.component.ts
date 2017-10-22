@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TitleCasePipe } from '@angular/common';
 import { DataService, Curator, Kard } from '../shared/data.service';
 
 import { Router } from '@angular/router';
@@ -23,8 +24,12 @@ export class HomeComponent implements OnInit {
    * @param {NameListService} nameListService - The injected NameListService.
    */
   constructor(public dataService: DataService,
-              private router: Router) {
+              private router: Router, private titlecasePipe: TitleCasePipe) {
     this.kards = [];
+    }
+
+  transformName() {
+    this.fullName = this.titlecasePipe.transform(this.fullName);
   }
 
   /**

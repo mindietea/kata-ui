@@ -62,6 +62,14 @@
   width: 80px;
 }
 
+.sideName {
+  z-index: 2;
+  position: absolute;
+  right: 120px;
+  transform: translateX(-50%);
+  top: 20px;
+}
+
 /**/
 
 
