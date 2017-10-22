@@ -124,7 +124,7 @@ export class DataService {
 
    getVisionResults(image_url: String){
 	return this.http.post("http://76b40d76.ngrok.io/api/post/vision",
-	JSON.stringify({"url":image_url}))
+	JSON.stringify({url:image_url}))
 	.map((res:Response) => res.json());
    }
 
@@ -135,7 +135,7 @@ export class DataService {
 
    getSearchResults(substring: String){
 	return this.http.post("http://76b40d76.ngrok.io/api/post/search",
-	JSON.stringify({"substring":substring}))
+	JSON.stringify({substring:substring}))
 	.map((res:Response) => res.json());
    }
 }
