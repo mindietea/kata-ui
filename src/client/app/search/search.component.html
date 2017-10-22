@@ -1,16 +1,18 @@
 
 
 <!-- Each card -->
-
+<div class="pRight">
+  
 <div class="container">
   <div class="row">
-      <h1>Search page</h1>
+        <h1>Search page</h1>
+        
+        <input [(ngModel)]="userIn">
+        
+        <button (click)="doSearch()">Find Similar</button>
       
-      <input [(ngModel)]="userIn">
-      
-      <button (click)="doSearch()">Find Similar</button>
   </div>
-
+</div>
   <div *ngFor="let kard of kards">
     
         <div class="row">
