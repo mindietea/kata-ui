@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService, Kard } from '../shared/data.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   moduleId: module.id,
@@ -8,8 +9,11 @@ import { DataService, Kard } from '../shared/data.service';
  styleUrls: ['vision.component.css']
 })
 export class VisionComponent implements OnInit {
-  
+
+  userIn: String;
+
   constructor(public dataService: DataService) {
+    this.userIn = "hello";
   }
 
   // getUrl(){
@@ -27,5 +31,14 @@ export class VisionComponent implements OnInit {
  // follow(val:boolean) {
  //   this.dataService.following[this.c.id] = val;
  // }
+
+ doVision() {
+  this.dataService.getVisionResults(this.userIn)
+  .subscribe(
+      r => {
+        console.log(r);
+      }
+    );
+ }
 
 }

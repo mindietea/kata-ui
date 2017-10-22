@@ -4,10 +4,13 @@ import { VisionComponent } from './vision.component';
 import { VisionRoutingModule } from './vision-routing.module';
 import { DataService } from '../shared/data.service';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
-  imports: [CommonModule, VisionRoutingModule],
+  imports: [CommonModule, VisionRoutingModule, FormsModule],
   declarations: [VisionComponent],
   exports: [VisionComponent],
   providers: [DataService]  
 })
+
 export class VisionModule { }
