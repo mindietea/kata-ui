@@ -111,7 +111,12 @@ export class DataService {
 	this.following = [true, false];
 
 	// Get curator cards from service
-	this.getKards(0)
+	this.updateKards();
+
+  }
+
+  updateKards() {
+  	this.getKards(0)
 		.subscribe(
 			r => {
 				this.curators[0].kards = r;
@@ -124,7 +129,6 @@ export class DataService {
 				this.curators[1].kards = r;
 			}
 		);
-
   }
 
   /**
