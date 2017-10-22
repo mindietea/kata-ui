@@ -128,4 +128,14 @@ export class DataService {
 	.map((res:Response) => res.json());
    }
 
+   getRecommendationResults(name:String, brand:String){
+	return this.http.get("http://76b40d76.ngrok.io/api/post/recommendations?name=name&brand=brand")
+	.map((res:Response) => res.json());
+   }
+
+   getSearchResults(substring: String){
+	return this.http.post("http://76b40d76.ngrok.io/api/post/search",
+	JSON.stringify({"substring":substring}))
+	.map((res:Response) => res.json());
+   }
 }
