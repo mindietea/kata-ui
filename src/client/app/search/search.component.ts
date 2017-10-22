@@ -3,28 +3,29 @@ import { DataService, Kard } from '../shared/data.service';
 
 @Component({
   moduleId: module.id,
-  selector: 'sd-vision',
- templateUrl: 'vision.component.html',
- styleUrls: ['vision.component.css']
+  selector: 'sd-search',
+ templateUrl: 'search.component.html',
+ styleUrls: ['search.component.css']
 })
-export class VisionComponent implements OnInit {
+export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
-
+  userIn :String;
   kards: any[];
-  userIn:String;
   constructor(public dataService: DataService) {
-    this.kards = [];
-    this.userIn = "";
+    this.kards = []
+    this.userIn = ""
   }
 
-   doVision(){
-    this.dataService.getVisionResults(this.userIn)
+   doSearch(){
+    this.dataService.getSearchResults(this.userIn)
       .subscribe(
         r => {
-          console.log(r['results'])
-          this.kards = r['results'];
+          this.kards = r;
           console.log(this.kards);
+        },
+        err => {
+          console.log(err)
         }
       );
   }

@@ -12,10 +12,10 @@ import { SharedModule } from './shared/shared.module';
 
 import { CuratorModule } from './curator/curator.module';
 import { VisionModule } from './vision/vision.module';
-
+import { SearchModule } from './search/search.module';
 
 @NgModule({
-  imports: [BrowserModule, HttpModule, FormsModule, AppRoutingModule, AboutModule, HomeModule, CuratorModule, VisionModule, SharedModule.forRoot()],
+  imports: [BrowserModule, HttpModule, FormsModule, AppRoutingModule, AboutModule, HomeModule, CuratorModule, VisionModule, SearchModule, SharedModule.forRoot()],
   declarations: [AppComponent],
   providers: [{
     provide: APP_BASE_HREF,

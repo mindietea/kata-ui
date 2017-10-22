@@ -1,0 +1,31 @@
+<h1>Search page</h1>
+
+<input [(ngModel)]="userIn">
+
+<button (click)="doSearch()">Find Similar</button>
+
+<!-- Each card -->
+<div *ngFor="let kard of kards">
+    
+        <div class="container row">
+    
+            <!-- Center -->
+            <div class="col-md-6 kard">
+    
+              <h1>{{ kard.ProductName }}</h1>
+            
+                  <!-- Img -->
+                  <a href="{{ kard.ProductLink }}" target="_blank">
+                    <img class="productImage center-block"  src="{{ kard.ImageLink }}">
+                  </a>
+            
+
+                </div>
+    
+            </div>
+    
+            <!-- Right -->
+            <div class="col-md-3">
+            </div>
+    
+</div>

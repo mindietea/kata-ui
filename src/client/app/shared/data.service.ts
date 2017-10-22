@@ -159,6 +159,7 @@ export class DataService {
    }
 
    getSearchResults(substring: String){
+	   console.log(substring)
 	return this.http.post("http://76b40d76.ngrok.io/api/post/search",
 	JSON.stringify({substring:substring}))
 	.map((res:Response) => res.json());
