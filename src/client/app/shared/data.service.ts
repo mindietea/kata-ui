@@ -3,6 +3,8 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 // import 'rxjs/add/operator/do';  // for debugging
 
+import 'rxjs/Rx';
+
 export class Curator {
 	name: string;
 	id: number;
@@ -48,12 +50,15 @@ export class DataService {
 
   constructor(private http: Http) {
 
-  	this.http.get("http://6197757d.ngrok.io/api/curator/0/posts")
-  		.subscribe((res: Response) => {
-  			res.json().then(function(data) {
-  				console.log(data);
-  			})
-  		})
+  	this.getKards()
+  		.subscribe(
+  			r => {
+  				console.log(r)
+  			},
+  			err => {
+  				console.log(err)
+  			}
+  		);
 
 	let extraP: Product = {
 		id: 0,
@@ -111,7 +116,10 @@ export class DataService {
    * @return {string[]} The Observable for the HTTP request.
    */
 
-
+   getKards() {
+   	return this.http.get("http://6197757d.ngrok.io/api/curator/0/posts")
+  		.map((res:Response) => res.json());
+   }
 
 
 }
