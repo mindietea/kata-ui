@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { APP_BASE_HREF } from '@angular/common';
+import { APP_BASE_HREF, TitleCasePipe } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -20,7 +20,7 @@ import { VisionModule } from './vision/vision.module';
   providers: [{
     provide: APP_BASE_HREF,
     useValue: '<%= APP_BASE %>'
-  }],
+  }, TitleCasePipe],
   bootstrap: [AppComponent]
 
 })

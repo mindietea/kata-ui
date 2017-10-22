@@ -1,3 +1,5 @@
 // declare var System: SystemJSLoader.System;
 
-System.config(JSON.parse('<%= SYSTEM_CONFIG_DEV %>'));
+var systemJson = JSON.parse('<%= SYSTEM_CONFIG_DEV %>');
+
+System.config(systemJson);
